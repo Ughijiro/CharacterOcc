@@ -1,14 +1,22 @@
-This program scans a binary file full of 32‑bit unsigned integers and builds a frequency table:
+This C program analyzes the frequency of alphabetic characters in a text file and outputs the percentage of each letter's occurrence, along with a summary of non-alphabetic characters.
 
-Input format – raw little‑endian unsigned int values, packed one after another.
+What It Does
+- Input: A plain text file containing words and symbols.
+- Processing:
+- Reads the file line by line.
+- Counts how many times each alphabetic character (A–Z, a–z) appears.
+- Tracks all other characters (digits, punctuation, symbols, etc.) under a general "other" category.
+- Stores letters in a sorted singly linked list by character.
+- Output: A text file listing each letter and its percentage of the total characters processed, followed by the percentage of non-letter characters.
 
-Processing – it walks the file once, storing each distinct number in a sorted singly linked list.
+Each line in the output file looks like:
+a - 7.143%
+b - 3.571%
+...
+other - 21.429%
 
-Output – for every distinct value, it prints a line to the specified text file:
-
-<number> : <occurrences> : <percentage>%
-Percentages are shown with four decimals, and the list is in ascending numeric order.
 
 Usage:
-./program input.bin output.txt
+./program input.txt output.txt
+
 
